@@ -1,0 +1,65 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <style>
+        body {
+            background-color: #DADADA;
+        }
+    </style>
+</head>
+<div style="display: none;" id="key"><%= info.key %></div>
+<div class="pusher">
+    <div class="ui inverted vertical center aligned segment">
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <h2 class="item"><%=info.nameone%></h2><h2 class="item" id="you">200</h2><h2 class="item" id="enyou">300</h2>
+                <div class="right item">
+                    <h2 class="item"><%=info.nametwo%></h2><h2 class="item" id="opponent">200</h2><h2 class="item" id="enop">300</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<body>
+    <div class="ui segment">
+        <div class="ui two column very relaxed grid">
+          <div class="column">
+            <h2 class="ui header" id="youstats"> ,* </h2>
+          </div>
+          <div class="column">
+            <h2 class="ui header" id="oppstats"> ,* </h2>
+          </div>
+        </div>
+        <div class="ui vertical divider">
+          STATS
+        </div>
+      </div>
+<div class="ui placeholder segment" style="height: 64%;">
+    <div class="ui two column very relaxed stackable grid">
+      <div class="column">
+        <p id="you-spell" class="center aligned">
+        
+        </p>        
+      </div>
+      <div class="middle aligned column">
+        <p id="opp-spell" class="center aligned">
+
+        </p>
+      </div>
+    </div>
+    <div class="ui vertical divider">
+      V/S
+    </div>
+  </div>
+    <div class="ui fluid action input">
+        <input type="text" placeholder="Cast your Spell..." id="spell-cast">
+        <button class="ui icon button" type="submit" id="magic-wand">
+            <i class="magic icon"></i>
+        </button>
+    </div>
+</body>
+<script src="/jquery-3.4.1.js"></script>
+<script src="/spell<%=info.nature%>.js"></script>
+</html>

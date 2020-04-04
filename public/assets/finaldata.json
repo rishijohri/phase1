@@ -1,0 +1,1154 @@
+{
+	"textures": [
+		{
+			"image": "finalpic.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 1744,
+				"h": 125
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "finale-32.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 0,
+						"w": 74,
+						"h": 80
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 74,
+						"h": 80
+					}
+				},
+				{
+					"filename": "finale-48.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 31,
+						"w": 72,
+						"h": 41
+					},
+					"frame": {
+						"x": 1,
+						"y": 83,
+						"w": 72,
+						"h": 41
+					}
+				},
+				{
+					"filename": "finale-49.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 31,
+						"w": 72,
+						"h": 41
+					},
+					"frame": {
+						"x": 75,
+						"y": 83,
+						"w": 72,
+						"h": 41
+					}
+				},
+				{
+					"filename": "finale-5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 79,
+						"h": 76
+					},
+					"frame": {
+						"x": 77,
+						"y": 1,
+						"w": 79,
+						"h": 76
+					}
+				},
+				{
+					"filename": "finale-11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 35,
+						"w": 75,
+						"h": 42
+					},
+					"frame": {
+						"x": 149,
+						"y": 79,
+						"w": 75,
+						"h": 42
+					}
+				},
+				{
+					"filename": "finale-4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 77,
+						"h": 76
+					},
+					"frame": {
+						"x": 158,
+						"y": 1,
+						"w": 77,
+						"h": 76
+					}
+				},
+				{
+					"filename": "finale-10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 34,
+						"w": 74,
+						"h": 42
+					},
+					"frame": {
+						"x": 226,
+						"y": 79,
+						"w": 74,
+						"h": 42
+					}
+				},
+				{
+					"filename": "finale-41.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 0,
+						"w": 49,
+						"h": 73
+					},
+					"frame": {
+						"x": 237,
+						"y": 1,
+						"w": 49,
+						"h": 73
+					}
+				},
+				{
+					"filename": "finale-39.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 80,
+						"h": 72
+					},
+					"frame": {
+						"x": 288,
+						"y": 1,
+						"w": 80,
+						"h": 72
+					}
+				},
+				{
+					"filename": "finale-50.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 23,
+						"w": 71,
+						"h": 49
+					},
+					"frame": {
+						"x": 302,
+						"y": 75,
+						"w": 71,
+						"h": 49
+					}
+				},
+				{
+					"filename": "finale-3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 76,
+						"h": 72
+					},
+					"frame": {
+						"x": 370,
+						"y": 1,
+						"w": 76,
+						"h": 72
+					}
+				},
+				{
+					"filename": "finale-15.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 28,
+						"w": 72,
+						"h": 48
+					},
+					"frame": {
+						"x": 375,
+						"y": 75,
+						"w": 72,
+						"h": 48
+					}
+				},
+				{
+					"filename": "finale-31.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 2,
+						"w": 75,
+						"h": 72
+					},
+					"frame": {
+						"x": 448,
+						"y": 1,
+						"w": 75,
+						"h": 72
+					}
+				},
+				{
+					"filename": "finale-30.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 34,
+						"w": 75,
+						"h": 46
+					},
+					"frame": {
+						"x": 449,
+						"y": 75,
+						"w": 75,
+						"h": 46
+					}
+				},
+				{
+					"filename": "finale-16.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 0,
+						"w": 69,
+						"h": 67
+					},
+					"frame": {
+						"x": 525,
+						"y": 1,
+						"w": 69,
+						"h": 67
+					}
+				},
+				{
+					"filename": "finale-9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 34,
+						"w": 70,
+						"h": 42
+					},
+					"frame": {
+						"x": 526,
+						"y": 70,
+						"w": 70,
+						"h": 42
+					}
+				},
+				{
+					"filename": "finale-23.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 9,
+						"w": 76,
+						"h": 66
+					},
+					"frame": {
+						"x": 596,
+						"y": 1,
+						"w": 76,
+						"h": 66
+					}
+				},
+				{
+					"filename": "finale-42.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 18,
+						"w": 80,
+						"h": 55
+					},
+					"frame": {
+						"x": 598,
+						"y": 69,
+						"w": 80,
+						"h": 55
+					}
+				},
+				{
+					"filename": "finale-21.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 10,
+						"w": 75,
+						"h": 65
+					},
+					"frame": {
+						"x": 674,
+						"y": 1,
+						"w": 75,
+						"h": 65
+					}
+				},
+				{
+					"filename": "finale-13.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 19,
+						"w": 75,
+						"h": 56
+					},
+					"frame": {
+						"x": 680,
+						"y": 68,
+						"w": 75,
+						"h": 56
+					}
+				},
+				{
+					"filename": "finale-22.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 10,
+						"w": 75,
+						"h": 65
+					},
+					"frame": {
+						"x": 751,
+						"y": 1,
+						"w": 75,
+						"h": 65
+					}
+				},
+				{
+					"filename": "finale-18.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 19,
+						"w": 70,
+						"h": 56
+					},
+					"frame": {
+						"x": 757,
+						"y": 68,
+						"w": 70,
+						"h": 56
+					}
+				},
+				{
+					"filename": "finale-28.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 13,
+						"w": 80,
+						"h": 62
+					},
+					"frame": {
+						"x": 828,
+						"y": 1,
+						"w": 80,
+						"h": 62
+					}
+				},
+				{
+					"filename": "finale-43.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 14,
+						"w": 80,
+						"h": 59
+					},
+					"frame": {
+						"x": 829,
+						"y": 65,
+						"w": 80,
+						"h": 59
+					}
+				},
+				{
+					"filename": "finale-27.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 13,
+						"w": 79,
+						"h": 62
+					},
+					"frame": {
+						"x": 910,
+						"y": 1,
+						"w": 79,
+						"h": 62
+					}
+				},
+				{
+					"filename": "finale-37.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 15,
+						"w": 79,
+						"h": 59
+					},
+					"frame": {
+						"x": 911,
+						"y": 65,
+						"w": 79,
+						"h": 59
+					}
+				},
+				{
+					"filename": "finale-29.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 13,
+						"w": 79,
+						"h": 62
+					},
+					"frame": {
+						"x": 991,
+						"y": 1,
+						"w": 79,
+						"h": 62
+					}
+				},
+				{
+					"filename": "finale-20.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 16,
+						"w": 72,
+						"h": 59
+					},
+					"frame": {
+						"x": 992,
+						"y": 65,
+						"w": 72,
+						"h": 59
+					}
+				},
+				{
+					"filename": "finale-38.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 16,
+						"w": 79,
+						"h": 58
+					},
+					"frame": {
+						"x": 1066,
+						"y": 65,
+						"w": 79,
+						"h": 58
+					}
+				},
+				{
+					"filename": "finale-17.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 70,
+						"h": 62
+					},
+					"frame": {
+						"x": 1072,
+						"y": 1,
+						"w": 70,
+						"h": 62
+					}
+				},
+				{
+					"filename": "finale-45.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 12,
+						"w": 71,
+						"h": 61
+					},
+					"frame": {
+						"x": 1144,
+						"y": 1,
+						"w": 71,
+						"h": 61
+					}
+				},
+				{
+					"filename": "finale-36.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 14,
+						"w": 80,
+						"h": 60
+					},
+					"frame": {
+						"x": 1147,
+						"y": 64,
+						"w": 80,
+						"h": 60
+					}
+				},
+				{
+					"filename": "finale-46.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 12,
+						"w": 71,
+						"h": 61
+					},
+					"frame": {
+						"x": 1217,
+						"y": 1,
+						"w": 71,
+						"h": 61
+					}
+				},
+				{
+					"filename": "finale-14.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 18,
+						"w": 79,
+						"h": 57
+					},
+					"frame": {
+						"x": 1229,
+						"y": 64,
+						"w": 79,
+						"h": 57
+					}
+				},
+				{
+					"filename": "finale-47.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 12,
+						"w": 71,
+						"h": 61
+					},
+					"frame": {
+						"x": 1290,
+						"y": 1,
+						"w": 71,
+						"h": 61
+					}
+				},
+				{
+					"filename": "finale-19.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 9,
+						"y": 18,
+						"w": 70,
+						"h": 57
+					},
+					"frame": {
+						"x": 1310,
+						"y": 64,
+						"w": 70,
+						"h": 57
+					}
+				},
+				{
+					"filename": "finale-0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 36,
+						"w": 70,
+						"h": 41
+					},
+					"frame": {
+						"x": 1363,
+						"y": 1,
+						"w": 70,
+						"h": 41
+					}
+				},
+				{
+					"filename": "finale-7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 58,
+						"w": 80,
+						"h": 18
+					},
+					"frame": {
+						"x": 1363,
+						"y": 44,
+						"w": 80,
+						"h": 18
+					}
+				},
+				{
+					"filename": "finale-12.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 6,
+						"y": 36,
+						"w": 74,
+						"h": 40
+					},
+					"frame": {
+						"x": 1435,
+						"y": 1,
+						"w": 74,
+						"h": 40
+					}
+				},
+				{
+					"filename": "finale-1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 8,
+						"y": 37,
+						"w": 72,
+						"h": 40
+					},
+					"frame": {
+						"x": 1382,
+						"y": 64,
+						"w": 72,
+						"h": 40
+					}
+				},
+				{
+					"filename": "finale-51.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 55,
+						"w": 80,
+						"h": 17
+					},
+					"frame": {
+						"x": 1382,
+						"y": 106,
+						"w": 80,
+						"h": 17
+					}
+				},
+				{
+					"filename": "finale-52.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 55,
+						"w": 80,
+						"h": 17
+					},
+					"frame": {
+						"x": 1445,
+						"y": 43,
+						"w": 80,
+						"h": 17
+					}
+				},
+				{
+					"filename": "finale-2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 7,
+						"y": 38,
+						"w": 73,
+						"h": 39
+					},
+					"frame": {
+						"x": 1511,
+						"y": 1,
+						"w": 73,
+						"h": 39
+					}
+				},
+				{
+					"filename": "finale-40.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 18,
+						"y": 19,
+						"w": 44,
+						"h": 39
+					},
+					"frame": {
+						"x": 1456,
+						"y": 62,
+						"w": 44,
+						"h": 39
+					}
+				},
+				{
+					"filename": "finale-6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 56,
+						"w": 80,
+						"h": 20
+					},
+					"frame": {
+						"x": 1464,
+						"y": 103,
+						"w": 80,
+						"h": 20
+					}
+				},
+				{
+					"filename": "finale-44.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 37,
+						"w": 80,
+						"h": 36
+					},
+					"frame": {
+						"x": 1502,
+						"y": 62,
+						"w": 80,
+						"h": 36
+					}
+				},
+				{
+					"filename": "finale-53.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 55,
+						"w": 80,
+						"h": 17
+					},
+					"frame": {
+						"x": 1527,
+						"y": 42,
+						"w": 80,
+						"h": 17
+					}
+				},
+				{
+					"filename": "finale-35.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 42,
+						"w": 80,
+						"h": 33
+					},
+					"frame": {
+						"x": 1586,
+						"y": 1,
+						"w": 80,
+						"h": 33
+					}
+				},
+				{
+					"filename": "finale-24.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 46,
+						"w": 75,
+						"h": 29
+					},
+					"frame": {
+						"x": 1668,
+						"y": 1,
+						"w": 75,
+						"h": 29
+					}
+				},
+				{
+					"filename": "finale-8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 60,
+						"w": 80,
+						"h": 16
+					},
+					"frame": {
+						"x": 1546,
+						"y": 100,
+						"w": 80,
+						"h": 16
+					}
+				},
+				{
+					"filename": "finale-34.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 43,
+						"w": 79,
+						"h": 32
+					},
+					"frame": {
+						"x": 1584,
+						"y": 61,
+						"w": 79,
+						"h": 32
+					}
+				},
+				{
+					"filename": "finale-33.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 42,
+						"w": 78,
+						"h": 32
+					},
+					"frame": {
+						"x": 1665,
+						"y": 36,
+						"w": 78,
+						"h": 32
+					}
+				},
+				{
+					"filename": "finale-25.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 48,
+						"w": 78,
+						"h": 27
+					},
+					"frame": {
+						"x": 1665,
+						"y": 70,
+						"w": 78,
+						"h": 27
+					}
+				},
+				{
+					"filename": "finale-26.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 80,
+						"h": 80
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 50,
+						"w": 80,
+						"h": 25
+					},
+					"frame": {
+						"x": 1628,
+						"y": 99,
+						"w": 80,
+						"h": 25
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:c3355b5b08acebfe4046b3ab083ac99f:15fb97961532ec4bd0bbefea0f00416d:bbf1de1d85964b8b362954e7f103406c$"
+	}
+}

@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.22.0/phaser.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.22.0/phaser-arcade-physics.js"></script>
+    <style>
+        body {
+            background-color: #DADADA;
+        }
+    </style>
+</head>
+<div style="display: none;" id="key"><%= info.key %></div>
+<div class="pusher">
+    <div class="ui inverted vertical center aligned segment">
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <h2 class="item"><%=info.nameone%></h2><h2 class="item" id="pone">300</h2><h2 class="item" id="eone">300</h2>
+                <div class="right item">
+                    <h2 class="item"><%=info.nametwo%></h2><h2 class="item" id="ptwo">300</h2><h2 class="item" id="etwo">300</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<body>
+    <script src="/jquery-3.4.1.js"></script>
+    <script src="/spellvisual.js"></script>
+    <script src="/arenacont<%=info.nature%>.js"></script>
+    
+</body>
+<div class="ui fluid action input">
+    <input type="text" placeholder="Cast your Spell..." id="spell-cast">
+    <button class="ui icon button" type="submit" id="magic-wand">
+        <i class="magic icon"></i>
+    </button>
+</div>
+</html>

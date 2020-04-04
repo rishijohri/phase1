@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <div class="pusher">
+        <div class="ui inverted vertical center aligned segment">
+    <div class="ui container">
+        <div class="ui large secondary inverted pointing menu">
+          <a class="item" href="/">Home</a>
+          <a class="item">How it Works</a>
+          <a class="item">Spell Book</a>
+          <a class="item">Ranks</a>
+          <div class="right item">
+            <% if (truth.logged) { %>
+            <a class="ui inverted button" href="/matchmake">Create A Dungeon</a>
+            <a class="ui inverted button" href="/signup">Find Opponent</a>
+            <a class="ui inverted button" href="/signout">Logout</a>
+            <% } else { %>
+            <a class="ui inverted button" href="/signin">Sign in</a>
+            <a class="ui inverted button" href="/signup">Sign Up</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      </div>
+     </div>
+
+      
