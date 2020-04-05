@@ -7,11 +7,13 @@ var express        = require("express")
     methodoverride = require("method-override")
     User           = require("./models/user")
     stash          = require("./models/spellstash")
-    
-
+    mongoDB        = "mongodb+srv://rishijoh:dragonhello@cluster0-5qujp.mongodb.net/phaseone?retryWrites=true&w=majority"
+    localmongo     = "mongodb://localhost:27017/Phaseone"
 app.set("view engine", "ejs")
 app.use(bodyparser.urlencoded({extended: true}))
-mongoose.connect("mongodb://localhost:27017/Phaseone", {useUnifiedTopology:true ,useNewUrlParser: true})
+mongoose.connect(mongoDB, {useUnifiedTopology:true ,useNewUrlParser: true})
+var db = mongoose.connection
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 app.use(require("express-session")({
     secret: "this is the secret of all spells",
     resave: false,
