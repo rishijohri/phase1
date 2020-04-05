@@ -29,7 +29,7 @@ app.use(methodoverride("_method"))
 app.use(express.static("public"))
 
 
-var server = app.listen(3000, function() {
+var server = app.listen(process.env.PORT, function() {
     console.log("server started")
 })
 
