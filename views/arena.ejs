@@ -12,13 +12,14 @@
     </style>
 </head>
 <div style="display: none;" id="key"><%= info.key %></div>
+<div style="display: none;" id="nature"><%= info.nature %></div>
 <div class="pusher">
     <div class="ui inverted vertical center aligned segment">
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
-                <h2 class="item"><%=info.nameone%></h2><h2 class="item" id="pone">300</h2><h2 class="item" id="eone">300</h2>
+                <h2 class="item" id="name1"><%=info.nameone%></h2><h2 class="item" id="pone">300</h2><h2 class="item" id="eone">300</h2>
                 <div class="right item">
-                    <h2 class="item"><%=info.nametwo%></h2><h2 class="item" id="ptwo">300</h2><h2 class="item" id="etwo">300</h2>
+                    <h2 class="item" id="name2"><%=info.nametwo%></h2><h2 class="item" id="ptwo">300</h2><h2 class="item" id="etwo">300</h2>
                 </div>
             </div>
         </div>
@@ -27,7 +28,7 @@
 <body>
     <script src="/jquery-3.4.1.js"></script>
     <script src="/spellvisual.js"></script>
-    <script src="/arenacont<%=info.nature%>.js"></script>
+    <script src="/arenascripts.js"></script>
     
 </body>
 <div class="ui fluid action input">

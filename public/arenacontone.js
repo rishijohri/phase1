@@ -25,8 +25,8 @@ var ptwo = $("#ptwo")
 var etwo = $("#etwo")
 var keyval = key[0].innerText
 var timer = 0
-var time = 0
 var castspell = $('#spell-cast')
+var magic_and = $('#magic-wand')
 var game = new Phaser.Game(config)
 var gameState = {}
 var dmgCount = 0;
@@ -36,6 +36,7 @@ gameState.onerecov = 300
 gameState.tworecov = 300
 onevelmult = 1
 twovelmult = 1
+
 function preload() {
     this.load.image('background', '/assets/backgroundtwo.jpg')
     this.load.atlas('slime', '/assets/finalpic.png', '/assets/finaldata.json')
@@ -67,9 +68,9 @@ $(document).keypress(function(event){
 	
 	var keycode = (event.keyCode ? event.keyCode : event.which);
 	if(keycode == '13' || keycode == '20') {
-        socket.emit('spellcast', {spell : castspell.val(), user : 'two', key: keyval, onepos: gameState.playerone.x, twopos: gameState.playertwo.x})
+        socket.emit('spellcast', {spell : castspell.val(), user : 'one', key: keyval, onepos: gameState.playerone.x, twopos: gameState.playertwo.x})
         castspell.val('')
-    } 
+    }
     
 }
 )
@@ -156,14 +157,6 @@ function create() {
         loop : true
     })
     this.time.addEvent({
-        delay : 1850,
-        callback : () => {
-            time++
-        },
-        callbackScope : this,
-        loop : true
-    })
-    this.time.addEvent({
         delay : 2000,
         callback : () => {
             dmgCount++
@@ -213,31 +206,30 @@ function create() {
     })
 }
 
-
 function update() {
     var fire = this.physics.add.group()
     var water = this.physics.add.group()
-    var dark = this.physics.add.group()
+    var dark =this.physics.add.group()
     // this sends request to move to the backend server
         if (gameState.right.isDown) {
             socket.emit('new-move', {
                 move : 'right',
-                user : 'two'
+                user : 'one'
             })
         } else if (gameState.left.isDown) {
             socket.emit('new-move', {
                 move : 'left',
-                user : 'two'
+                user : 'one'
             })
         } else if (gameState.up.isDown) {
             socket.emit('new-move', {
                 move : 'up',
-                user : 'two'
+                user : 'one'
             })
         } else if (gameState.down.isDown) {
             socket.emit('new-move', {
                 move : 'down',
-                user : 'two'
+                user : 'one'
             })
         } else if (gameState.m.isDown) {
             gameState.playerone.anims.play('defend', true)
@@ -477,113 +469,117 @@ function update() {
 
         })
     
-    this.physics.add.collider(fire, gameState.playerone, (ball, player) => {
-        fire.getChildren().map(child => {
-            child.destroy()
-        })
-        
-            socket.emit('interact', {
-                user : 'one',
-                key : keyval,
-                affect : 'one',
-                type : 'fire',
-                shield : false
+    
+        this.physics.add.collider(fire, gameState.playerone, (ball, player) => {
+            fire.getChildren().map(child => {
+                child.destroy()
             })
-        
-    })
-    this.physics.add.collider(fire, gameState.playertwo, (ball, player) => {
-        fire.getChildren().map(child => {
-            child.destroy()
+            
+                socket.emit('interact', {
+                    user : 'one',
+                    key : keyval,
+                    affect : 'one',
+                    type : 'fire',
+                    shield : false
+                })
+            
         })
-        
-            socket.emit('interact', {
-                user : 'two',
-                key : keyval,
-                affect : 'two',
-                type : 'fire',
-                shield : false
+        this.physics.add.collider(fire, gameState.playertwo, (ball, player) => {
+            fire.getChildren().map(child => {
+                child.destroy()
             })
-        
-    })
-    this.physics.add.collider(water, gameState.playertwo, (ball, player) => {
-        water.getChildren().map(child => {
-            child.destroy()
+            
+                socket.emit('interact', {
+                    user : 'two',
+                    key : keyval,
+                    affect : 'two',
+                    type : 'fire',
+                    shield : false
+                })
+            
         })
-        
-            socket.emit('interact', {
-                user : 'two',
-                key : keyval,
-                affect : 'two',
-                type : 'water',
-                shield : false
+        this.physics.add.collider(water, gameState.playertwo, (ball, player) => {
+            water.getChildren().map(child => {
+                child.destroy()
             })
-        
-    })
-    this.physics.add.collider(water, gameState.playerone, (ball, player) => {
-        water.getChildren().map(child => {
-            child.destroy()
+            
+                socket.emit('interact', {
+                    user : 'two',
+                    key : keyval,
+                    affect : 'two',
+                    type : 'water',
+                    shield : false
+                })
+            
         })
-        
-            socket.emit('interact', {
-                user : 'one',
-                key : keyval,
-                affect : 'one',
-                type : 'water',
-                shield : false
+        this.physics.add.collider(water, gameState.playerone, (ball, player) => {
+            water.getChildren().map(child => {
+                child.destroy()
             })
-        
-    })
-    this.physics.add.collider(dark, gameState.playerone, (ball, player) => {
-        dark.getChildren().map(child => {
-            child.destroy()
+            
+                socket.emit('interact', {
+                    user : 'one',
+                    key : keyval,
+                    affect : 'one',
+                    type : 'water',
+                    shield : false
+                })
+            
         })
-        
-            socket.emit('interact', {
-                user : 'one',
-                key : keyval,
-                affect : 'one',
-                type : 'dark',
-                shield : false
+        this.physics.add.collider(dark, gameState.playerone, (ball, player) => {
+            dark.getChildren().map(child => {
+                child.destroy()
             })
-        
-    })
-    this.physics.add.collider(dark, gameState.playertwo, (ball, player) => {
-        dark.getChildren().map(child => {
-            child.destroy()
+            
+                socket.emit('interact', {
+                    user : 'one',
+                    key : keyval,
+                    affect : 'one',
+                    type : 'dark',
+                    shield : false
+                })
+            
         })
-        
-            socket.emit('interact', {
-                user : 'two',
-                key : keyval,
-                affect : 'two',
-                type : 'dark',
-                shield : false
+        this.physics.add.collider(dark, gameState.playertwo, (ball, player) => {
+            dark.getChildren().map(child => {
+                child.destroy()
             })
-        
-    })
-    socket.on('interact', data => {
-        water.getChildren().map(child => {
-            child.destroy()
+            
+                socket.emit('interact', {
+                    user : 'two',
+                    key : keyval,
+                    affect : 'two',
+                    type : 'dark',
+                    shield : false
+                })
+            
         })
-        fire.getChildren().map(child => {
-            child.destroy()
-        })
-        if (data.affect === 'two') {
-        if (dmgCount >1) {
-            dmgCount =0
-            console.log('damaged')
-            gameState.playertwo.setVelocityX(0)
-            ptwo.html(ptwo.html()-data.dmg)
+        socket.on('interact', data => {
+            water.getChildren().map(child => {
+                child.destroy()
+            })
+            fire.getChildren().map(child => {
+                child.destroy()
+            })
+            dark.getChildren().map(child => {
+                child.destroy()
+            })
+            if (data.affect === 'two') {
+            if (dmgCount >1) {
+                dmgCount =0
+                console.log('damaged')
+                gameState.playertwo.setVelocityX(0)
+                ptwo.html(ptwo.html()-data.dmg)
+            }
+        } else if (data.affect ==='one') {
+            if (dmgCount >1) {
+                dmgCount =0
+                console.log('damaged')
+                gameState.playerone.setVelocityX(0)
+                pone.html(pone.html()-data.dmg)
+            }
         }
-    } else if (data.affect ==='one') {
-        if (dmgCount >1) {
-            dmgCount =0
-            console.log('damaged')
-            gameState.playerone.setVelocityX(0)
-            pone.html(pone.html()-data.dmg)
-        }
-    }
-    })
+        })
     }
 }
 

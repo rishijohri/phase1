@@ -6,7 +6,11 @@ var UserSchema = mongoose.Schema({
     password: String,
     first: String,
     last: String,
-    level: {type: Number, default: 0}
+    level: {type: Number, default: 0},
+    // health : {type: Number, default: 100},
+    // damage : {type: Number, default : 1},
+    // speed : {type: Number, default : 1},
+    // energy : {type: Number, default : 100}
 })
 
 UserSchema.plugin(passportLocalMongoose)

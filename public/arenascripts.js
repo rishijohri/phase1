@@ -23,10 +23,14 @@ var pone = $("#pone")
 var eone = $("#eone")
 var ptwo = $("#ptwo")
 var etwo = $("#etwo")
+var nature = $('#nature')
+var nameone = $('#name1').html()
+var nametwo = $('#name2').html()
+var natural = nature.html()
 var keyval = key[0].innerText
 var timer = 0
+var time = 0
 var castspell = $('#spell-cast')
-var magic_and = $('#magic-wand')
 var game = new Phaser.Game(config)
 var gameState = {}
 var dmgCount = 0;
@@ -36,7 +40,6 @@ gameState.onerecov = 300
 gameState.tworecov = 300
 onevelmult = 1
 twovelmult = 1
-
 function preload() {
     this.load.image('background', '/assets/backgroundtwo.jpg')
     this.load.atlas('slime', '/assets/finalpic.png', '/assets/finaldata.json')
@@ -63,14 +66,17 @@ function preload() {
     this.load.image('water-1', '/assets/waterstor/supwater-1.png')
     this.load.image('water-2', '/assets/waterstor/supwater-2.png')
     this.load.image('water-3', '/assets/waterstor/supwater-3.png')
+    this.load.image('poison-0', '/assets/pois/Picture1.png')
+    this.load.image('poison-1', '/assets/pois/Picture2.png')
+    this.load.image('poison-2', '/assets/pois/Picture3.png')
 }
 $(document).keypress(function(event){
 	
 	var keycode = (event.keyCode ? event.keyCode : event.which);
-	if(keycode == '13' || keycode == '20') {
-        socket.emit('spellcast', {spell : castspell.val(), user : 'one', key: keyval, onepos: gameState.playerone.x, twopos: gameState.playertwo.x})
+	if(keycode == '13') {
+        socket.emit('spellcast', {spell : castspell.val(), user : natural, key: keyval, onepos: gameState.playerone.x, twopos: gameState.playertwo.x})
         castspell.val('')
-    }
+    } 
     
 }
 )
@@ -140,6 +146,15 @@ function create() {
         frameRate: 13,
         repeat: -1
     })
+    this.anims.create({ key : 'poison',
+        frames : [
+            {key : 'poison-0'},
+            {key : 'poison-1'},
+            {key : 'poison-2', duration : 50}
+        ],
+        frameRate : 11,
+        repeat:  -1
+    })
     gameState.playerone.play('right')
     gameState.playertwo.play('left')
     gameState.right = this.input.keyboard.addKey('RIGHT')
@@ -157,6 +172,14 @@ function create() {
         loop : true
     })
     this.time.addEvent({
+        delay : 1850,
+        callback : () => {
+            time++
+        },
+        callbackScope : this,
+        loop : true
+    })
+    this.time.addEvent({
         delay : 2000,
         callback : () => {
             dmgCount++
@@ -168,10 +191,10 @@ function create() {
         delay : 100,
         callback : () => {
             if (pone.html()<=0) {
-                alert('user one is defeated')
+                alert(nameone+' is defeated and '+nametwo+' is the winner')
                 window.location ='http://' + host+ '/'
             } else if (ptwo.html()<=0) {
-                alert('user two is defeated')
+                alert(nametwo+' is defeated and '+nameone+' is the winner')
                 window.location ='http://' + host+ '/'
             }
         },
@@ -206,30 +229,32 @@ function create() {
     })
 }
 
+
 function update() {
     var fire = this.physics.add.group()
-var water = this.physics.add.group()
-    var dark =this.physics.add.group()
+    var water = this.physics.add.group()
+    var dark = this.physics.add.group()
+    var poison = this.physics.add.group()
     // this sends request to move to the backend server
-        if (gameState.right.isDown) {
+        if (Phaser.Input.Keyboard.JustDown(gameState.right)) {
             socket.emit('new-move', {
                 move : 'right',
-                user : 'one'
+                user : natural
             })
-        } else if (gameState.left.isDown) {
+        } else if (Phaser.Input.Keyboard.JustDown(gameState.left)) {
             socket.emit('new-move', {
                 move : 'left',
-                user : 'one'
+                user : natural
             })
-        } else if (gameState.up.isDown) {
+        } else if (Phaser.Input.Keyboard.JustDown(gameState.up)) {
             socket.emit('new-move', {
                 move : 'up',
-                user : 'one'
+                user : natural
             })
-        } else if (gameState.down.isDown) {
+        } else if (Phaser.Input.Keyboard.JustDown(gameState.down)) {
             socket.emit('new-move', {
                 move : 'down',
-                user : 'one'
+                user : natural
             })
         } else if (gameState.m.isDown) {
             gameState.playerone.anims.play('defend', true)
@@ -274,7 +299,6 @@ var water = this.physics.add.group()
             }
         } 
           })
-         
           socket.on('spellcast', (data) => {
             if (timer > 1) {
                 timer = 0
@@ -368,6 +392,26 @@ var water = this.physics.add.group()
                                         callbackScope: this,
                                         loop : false
                                     })
+                    } else if (data.spell === 'poison gas') {
+                        if (data.vel>0) {
+                            gameState.playerone.play('right')
+                            poison.create(gameState.playerone.x+200,gameState.playerone.y, 'poison-0').setScale(0.7)
+                        } else {
+                            gameState.playerone.play('left')
+                            poison.create(gameState.playerone.x-200,gameState.playerone.y, 'poison-0').setScale(0.7)
+                        }
+                            poison.playAnimation('poison')
+                            this.time.addEvent({
+                                delay : 10000,
+                                callback : () => {
+                                    poison.getChildren().map(child => {
+                                        child.destroy()
+                                        console.log('destroyed')
+                                    })
+                                },
+                                callbackScope: this,
+                                loop : false
+                            })
                     }
                 }
              } else if (data.caster==='two') {
@@ -462,6 +506,26 @@ var water = this.physics.add.group()
                                     callbackScope: this,
                                     loop : false
                                 })
+                    } else if (data.spell ==='poison gas') {
+                        if (data.vel>0) {
+                            gameState.playertwo.play('right')
+                            poison.create(gameState.playertwo.x+200,gameState.playertwo.y, 'poison-0').setScale(0.7)
+                        } else {
+                            gameState.playertwo.play('left')
+                            poison.create(gameState.playertwo.x-200,gameState.playertwo.y, 'poison-0').setScale(0.7)
+                        }
+                            poison.playAnimation('poison')
+                            this.time.addEvent({
+                                delay : 10000,
+                                callback : () => {
+                                    poison.getChildren().map(child => {
+                                        child.destroy()
+                                        console.log('destroyed')
+                                    })
+                                },
+                                callbackScope: this,
+                                loop : false
+                            })
                     }
                 }
                 }
@@ -469,118 +533,165 @@ var water = this.physics.add.group()
 
         })
     
-    
-        this.physics.add.collider(fire, gameState.playerone, (ball, player) => {
-            fire.getChildren().map(child => {
-                child.destroy()
-            })
-            
-                socket.emit('interact', {
-                    user : 'one',
-                    key : keyval,
-                    affect : 'one',
-                    type : 'fire',
-                    shield : false
-                })
-            
+    this.physics.add.overlap(fire, gameState.playerone, (ball, player) => {
+        fire.getChildren().map(child => {
+            child.destroy()
         })
-        this.physics.add.collider(fire, gameState.playertwo, (ball, player) => {
-            fire.getChildren().map(child => {
-                child.destroy()
+        
+            socket.emit('interact', {
+                user : 'one',
+                key : keyval,
+                affect : 'one',
+                type : 'fire',
+                shield : false
             })
-            
-                socket.emit('interact', {
-                    user : 'two',
-                    key : keyval,
-                    affect : 'two',
-                    type : 'fire',
-                    shield : false
-                })
-            
+        
+    })
+    this.physics.add.overlap(fire, gameState.playertwo, (ball, player) => {
+        fire.getChildren().map(child => {
+            child.destroy()
         })
-        this.physics.add.collider(water, gameState.playertwo, (ball, player) => {
-            water.getChildren().map(child => {
-                child.destroy()
+        
+            socket.emit('interact', {
+                user : 'two',
+                key : keyval,
+                affect : 'two',
+                type : 'fire',
+                shield : false
             })
-            
-                socket.emit('interact', {
-                    user : 'two',
-                    key : keyval,
-                    affect : 'two',
-                    type : 'water',
-                    shield : false
-                })
-            
+        
+    })
+    this.physics.add.overlap(water, gameState.playertwo, (ball, player) => {
+        water.getChildren().map(child => {
+            child.destroy()
         })
-        this.physics.add.collider(water, gameState.playerone, (ball, player) => {
-            water.getChildren().map(child => {
-                child.destroy()
+        
+            socket.emit('interact', {
+                user : 'two',
+                key : keyval,
+                affect : 'two',
+                type : 'water',
+                shield : false
             })
-            
-                socket.emit('interact', {
-                    user : 'one',
-                    key : keyval,
-                    affect : 'one',
-                    type : 'water',
-                    shield : false
-                })
-            
+        
+    })
+    this.physics.add.overlap(water, gameState.playerone, (ball, player) => {
+        water.getChildren().map(child => {
+            child.destroy()
         })
-        this.physics.add.collider(dark, gameState.playerone, (ball, player) => {
-            dark.getChildren().map(child => {
-                child.destroy()
+        
+            socket.emit('interact', {
+                user : 'one',
+                key : keyval,
+                affect : 'one',
+                type : 'water',
+                shield : false
             })
-            
-                socket.emit('interact', {
-                    user : 'one',
-                    key : keyval,
-                    affect : 'one',
-                    type : 'dark',
-                    shield : false
-                })
-            
+        
+    })
+    this.physics.add.overlap(dark, gameState.playerone, (ball, player) => {
+        dark.getChildren().map(child => {
+            child.destroy()
         })
-        this.physics.add.collider(dark, gameState.playertwo, (ball, player) => {
-            dark.getChildren().map(child => {
-                child.destroy()
+        
+            socket.emit('interact', {
+                user : 'one',
+                key : keyval,
+                affect : 'one',
+                type : 'dark',
+                shield : false
             })
-            
-                socket.emit('interact', {
-                    user : 'two',
-                    key : keyval,
-                    affect : 'two',
-                    type : 'dark',
-                    shield : false
-                })
-            
+        
+    })
+    this.physics.add.overlap(dark, gameState.playertwo, (ball, player) => {
+        dark.getChildren().map(child => {
+            child.destroy()
         })
-        socket.on('interact', data => {
-            water.getChildren().map(child => {
-                child.destroy()
+        
+            socket.emit('interact', {
+                user : 'two',
+                key : keyval,
+                affect : 'two',
+                type : 'dark',
+                shield : false
             })
-            fire.getChildren().map(child => {
-                child.destroy()
+        
+    })
+    this.physics.add.overlap(poison, gameState.playertwo, (ball, player) => {
+        poison.getChildren().map(child => {
+            child.destroy()
+        })
+        
+            socket.emit('interact', {
+                user : 'two',
+                key : keyval,
+                affect : 'two',
+                type : 'poison',
+                shield : false
             })
-            dark.getChildren().map(child => {
-                child.destroy()
+        
+    })
+    this.physics.add.overlap(poison, gameState.playerone, (ball, player) => {
+        poison.getChildren().map(child => {
+            child.destroy()
+        })
+        
+            socket.emit('interact', {
+                user : 'one',
+                key : keyval,
+                affect : 'one',
+                type : 'poison',
+                shield : false
             })
-            if (data.affect === 'two') {
-            if (dmgCount >1) {
-                dmgCount =0
-                console.log('damaged')
-                gameState.playertwo.setVelocityX(0)
-                ptwo.html(ptwo.html()-data.dmg)
-            }
-        } else if (data.affect ==='one') {
-            if (dmgCount >1) {
-                dmgCount =0
-                console.log('damaged')
-                gameState.playerone.setVelocityX(0)
-                pone.html(pone.html()-data.dmg)
-            }
+        
+    })
+    this.physics.add.overlap(poison, fire, (ball, player) => {
+        poison.getChildren().map(child => {
+            child.destroy()
+        })
+        fire.getChildren().map(child => {
+            child.destroy()
+        })
+    })
+    this.physics.add.overlap(poison, water, (ball, player) => {
+        poison.getChildren().map(child => {
+            child.destroy()
+        })
+        water.getChildren().map(child => {
+            child.destroy()
+        })
+    })
+    this.physics.add.overlap(poison, dark, (ball, player) => {
+        poison.getChildren().map(child => {
+            child.destroy()
+        })
+        dark.getChildren().map(child => {
+            child.destroy()
+        })
+    })
+    socket.on('interact', data => {
+        water.getChildren().map(child => {
+            child.destroy()
+        })
+        fire.getChildren().map(child => {
+            child.destroy()
+        })
+        if (data.affect === 'two') {
+        if (dmgCount >1) {
+            dmgCount =0
+            console.log('damaged')
+            gameState.playertwo.setVelocityX(0)
+            ptwo.html(ptwo.html()-data.dmg)
         }
-        })
+    } else if (data.affect ==='one') {
+        if (dmgCount >1) {
+            dmgCount =0
+            console.log('damaged')
+            gameState.playerone.setVelocityX(0)
+            pone.html(pone.html()-data.dmg)
+        }
+    }
+    })
     }
 }
-
 )

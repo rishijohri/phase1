@@ -91,11 +91,15 @@ app.get("/signout", function (req, res) {
 var keys = []
 app.get("/:key/dungeon", function (req, res) {
     if (req.isAuthenticated()) {
+        var gamedata =  keys.find(elem => {
+            return elem.key ===req.params.key
+        })
         var info = {
-            nametwo : "Opponent",
-            nameone: req.user.username,
-            nature: 1,
-            key : req.params.key
+            nametwo : gamedata.usertwo,
+            nameone: gamedata.userone,
+            nature: 'one',
+            key : req.params.key,
+            
         }
         res.render("arena", {info: info})
     }  else {
@@ -106,10 +110,13 @@ app.get("/:key/dungeon", function (req, res) {
 
 app.get("/:key/dungeoner", function(req, res) {
     if (req.isAuthenticated()) {
+        var gamedata =  keys.find(elem => {
+            return elem.key ===req.params.key
+        })
         var info = {
-            nameone : "Opponent",
-            nametwo: req.user.username,
-            nature: 2,
+            nameone : gamedata.userone,
+            nametwo: gamedata.usertwo,
+            nature: 'two',
             key : req.params.key
         }
         res.render("arena", {info: info})
@@ -136,8 +143,11 @@ app.get("/matchfind", function(req, res) {
 })
 
 app.post("/matchfind", function(req, res) {
-    if (keys.indexOf(req.body.key)!= -1){
-    res.redirect("/"+req.body.key+"/dungeoner")
+    var waitnum = keys.findIndex(elem => {
+        return elem.key ===req.body.key
+    })
+    if (waitnum != -1){
+    res.redirect("/"+req.body.key+"/waitroomtwo")
     } else {
         res.redirect("/matchfind")
     }
@@ -159,10 +169,32 @@ app.get("/matchmake", function(req, res) {
 })
 
 app.post("/matchmake", function(req, res) {
-    keys.push(req.body.key)
-    res.redirect("/"+req.body.key+"/dungeon")
+    var gamedata = {
+        key : req.body.key,
+        userone : req.user.username,
+        usertwo : 'unknown'
+    }
+    keys.push(gamedata)
+    res.redirect("/"+req.body.key+"/waitroomone")
 })
-
+app.get('/:key/waitroomone', function(req, res) {
+    var waitdata = keys.find(elem => {
+        return elem.key ===req.params.key
+    })
+    var repeat = setInterval(() => {
+        if (waitdata.usertwo != 'unknown') {
+            res.redirect('/'+req.params.key+'/dungeon')
+            clearInterval(repeat)
+        }
+    }, 500)
+})
+app.get('/:key/waitroomtwo', function (req, res) {
+    var waitnum = keys.findIndex(elem => {
+        return elem.key ===req.params.key
+    })
+    keys[waitnum].usertwo = req.user.username
+    res.redirect('/'+req.params.key+'/dungeoner')
+})
 
 io.on('connection', (socket) => {
     console.log('New User connected')
@@ -173,13 +205,13 @@ io.on('connection', (socket) => {
     })
     socket.on('interact', (data) => {
         var damage = dmg(data.type) 
-            io.sockets.emit('interact', {  dmg: damage, affect : data.affect, key : data.key, velx : velocityx(data.move), vely : velocityy(data.move)})
+        io.sockets.emit('interact', {  dmg: damage, affect : data.affect, key : data.key, velx : velocityx(data.move), vely : velocityy(data.move)})
         
     })
     socket.on('spellcast', (data) => {
         var spellcost = cost(data.spell)
         var velocity = caster(data.user, spellvel(data.spell, data.onepos, data.twopos))
-        console.log(data.spell)
+        //console.log(data.spell)
         io.sockets.emit('spellcast', {caster : data.user, spell : data.spell, key : data.key, cost : spellcost, vel : velocity})
     })
 
@@ -277,6 +309,8 @@ function cost(spell) {
         return 20
     } else if (spell==='dark ball') {
         return 120
+    }  else if (spell==='poison gas') {
+        return 50
     } else {
         return 0
     }
@@ -288,6 +322,8 @@ function dmg(spell) {
         return 30
     } else if (spell==='dark') {
         return Math.round(Math.random()*180)
+    } else if(spell==='poison') {
+        return 70
     } else {
         return 0
     }
@@ -317,6 +353,12 @@ function spellvel(spell, onepos, twopos) {
             return 650
         } else {
             return -650
+        }
+    } else if (spell==='poison gas') {
+        if (onepos<twopos) {
+            return 1
+        } else {
+            return -1
         }
     } else {
         return 0
