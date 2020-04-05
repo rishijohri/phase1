@@ -168,11 +168,12 @@ io.on('connection', (socket) => {
     console.log('New User connected')
     socket.on('new-move', (data) => {
         //console.log(data.move)
+        
         io.sockets.emit('new-move', {move : data.move, user : data.user, key : data.key})
     })
     socket.on('interact', (data) => {
         var damage = dmg(data.type) 
-            io.sockets.emit('interact', {  dmg: damage, affect : data.affect, key : data.key})
+            io.sockets.emit('interact', {  dmg: damage, affect : data.affect, key : data.key, velx : velocityx(data.move), vely : velocityy(data.move)})
         
     })
     socket.on('spellcast', (data) => {
@@ -301,24 +302,40 @@ function caster(cast, vel) {
 function spellvel(spell, onepos, twopos) {
     if (spell ==='fire ball') {
         if (onepos<twopos) {
-            return 500
+            return 600
         } else {
-            return -500
+            return -600
         }
     } else if (spell==='water ball') {
         if (onepos<twopos) {
-            return 600
+            return 750
         } else {
-            return -600
+            return -750
         }
     } else if(spell ==='dark ball') {
         if (onepos<twopos) {
-            return 600
+            return 650
         } else {
-            return -600
+            return -650
         }
     } else {
         return 0
+    }
+}
+function velocityx(move) {
+    if (move ==='right') {
+        return 100
+    } else if (move==='left') {
+        return -100
+    } else {
+        return 0
+    }
+}
+function velocityy(move) {
+    if (move==='up') {
+        return 100
+    } else if (move==='down') {
+        return -100
     }
 }
 
