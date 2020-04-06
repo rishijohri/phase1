@@ -1,6 +1,6 @@
 $(function() {
     var host = window.location.host; // Get the host name here
- var socket = io.connect('http://' + host);
+ var socket = io.connect('https://' + host);
 var config = {
     width : 1535,
     height : 590,
