@@ -52,6 +52,32 @@ app.get("/", function(req, res) {
 app.get("/home", function(req, res) {
     res.redirect("/")
 })
+app.get('/how', function (req, res) {  
+    if (req.isAuthenticated()) {
+        var truth = {
+            logged: true
+        }
+    } else {
+        var truth = {
+            logged: false
+        }
+    }
+    console.log(req.user)
+    res.render('how', {truth : truth})
+})
+app.get('/book', function (req, res) {  
+    if (req.isAuthenticated()) {
+        var truth = {
+            logged: true
+        }
+    } else {
+        var truth = {
+            logged: false
+        }
+    }
+    console.log(req.user)
+    res.render('book', {truth : truth})
+})
 
 app.get("/signin", function(req, res) {
     res.render("signin", {truth: {logged: false}})
