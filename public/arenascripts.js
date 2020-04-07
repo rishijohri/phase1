@@ -192,10 +192,10 @@ function create() {
         callback : () => {
             if (pone.html()<=0) {
                 alert(nameone+' is defeated and '+nametwo+' is the winner')
-                window.location ='https://' + host+ '/'
+                window.location = host+ '/'
             } else if (ptwo.html()<=0) {
                 alert(nametwo+' is defeated and '+nameone+' is the winner')
-                window.location ='https://' + host+ '/'
+                window.location = host+ '/'
             }
         },
         callbackScope : this,
