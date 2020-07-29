@@ -15,7 +15,29 @@
   </style>
 </head>
 <body>
-
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '{your-app-id}',
+        cookie     : true,
+        xfbml      : true,
+        version    : '{api-version}'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v7.0&appId=300246987843051&autoLogAppEvents=1" nonce="FX1nmJog"></script>
 <div class="ui middle aligned center aligned grid">
   <div class="column">
     <h2 class="ui teal image header">
@@ -51,8 +73,6 @@
         </div>
         <button class="ui fluid large teal submit button" type="submit">Sign Up</button>
       </div>
-
-
     </form>
-
+    <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width=""></div>
 <%- include('partials/footer.ejs')  %>

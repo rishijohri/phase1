@@ -361,19 +361,8 @@ function update() {
             })
         
     }
-        //ball.destroy()
     )
-    // this.physics.add.collider(water, gameState.playertwo, (odd, ball) => {
-    //     socket.emit('interact', {
-    //         user : 'two',
-    //         key : keyval,
-    //         affect : 'two',
-    //         type : 'water',
-    //         shield : false
-    //     })
-    //     //ball.destroy()
-    //     odd.destroy()
-    // })
+
     socket.on('interact', data => {
         fire.getChildren().map(child => {
             child.destroy()
